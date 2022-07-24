@@ -1,0 +1,17 @@
+.titulo{
+    color: hotpink;
+    /* width: 310px; */
+    height: 50px;
+    background-color: teal ;
+}
+
+label {
+    background-color: tomato;
+}
+
+input{
+    background-color: aqua;
+}
+button {
+    background-color: lightcoral;
+}
