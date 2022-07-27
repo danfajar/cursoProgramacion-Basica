@@ -10,7 +10,6 @@ function iniciarJuego() {
     let sectionReiniciar = document.getElementById('reiniciar')
     sectionReiniciar.style.display = 'none'
 
-   
     let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
     
@@ -32,7 +31,6 @@ function seleccionarMascotaJugador(){
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'flex'
     
-
     let inputHipodoge = document.getElementById('hipodoge')
     let inputCapipepo = document.getElementById('capipepo')
     let inputRatigueya = document.getElementById('ratigueya')
@@ -44,24 +42,18 @@ function seleccionarMascotaJugador(){
 
     if (inputHipodoge.checked){
         spanMascotaJugador.innerHTML ='Hipodoge'
-
     } else if(inputCapipepo.checked){
-        spanMascotaJugador.innerHTML ='Capipepo'
-                
+        spanMascotaJugador.innerHTML ='Capipepo'                
     } else if(inputRatigueya.checked){
-        spanMascotaJugador.innerHTML ='Ratigueya'
-                        
-    } else if(inputLangostelvis.checked){
-        spanMascotaJugador.innerHTML ='Langostelvis'
-                       
-    } else if(inputTucapalma.checked){
-        spanMascotaJugador.innerHTML ='Tupacalma'
-                       
-    } else if(inputPydos.checked){
-        spanMascotaJugador.innerHTML ='Pydos'
-                  
+        spanMascotaJugador.innerHTML ='Ratigueya'                 
     } else {
         alert('Selecciona una mascota')
+
+        let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+        sectionSeleccionarMascota.style.display = 'flex'
+
+        let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+        sectionSeleccionarAtaque.style.display = 'none'
     }  
 
     seleccionarMascotaEnemigo()
