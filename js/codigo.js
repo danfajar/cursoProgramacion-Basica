@@ -82,21 +82,16 @@ function seleccionarMascotaEnemigo(){
 function ataqueFuego(){
     ataqueJugador = 'FUEGO'
     ataqueAleatorioEnemigo()
-
-    // alert(ataqueJugador + " "+  ataqueEnemigo)
 }
 
 function ataqueAgua(){
     ataqueJugador = 'AGUA'
     ataqueAleatorioEnemigo()
-    // alert(ataqueJugador + " "+  ataqueEnemigo)
 }
 
 function ataqueTierra(){
     ataqueJugador = 'TIERRA'
     ataqueAleatorioEnemigo()
-    // alert(ataqueJugador + " "+  ataqueEnemigo)
-
 }
 
 function ataqueAleatorioEnemigo(){
@@ -113,8 +108,6 @@ function ataqueAleatorioEnemigo(){
 
     }
     combate()
-   
-
 }
 
 function combate (){
@@ -162,12 +155,18 @@ function contadorVidas(){
 function crearMensaje (resultadoCombate) {
    
 
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado-combate')
+    let notificacion = document.createElement('p')
+    notificacion.innerHTML = `Tú mascota atacó con ${ataqueJugador}, la mascota del enemigo atacó con ${ataqueEnemigo}. ${resultadoCombate}`
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = `Tú mascota atacó con ${ataqueJugador}, la mascota del enemigo atacó con ${ataqueEnemigo}. ${resultadoCombate}`
+    sectionMensajes.appendChild(notificacion)
 
-    sectionMensajes.appendChild(parrafo)
+
+
+    // let parrafo = document.createElement('p')
+    // parrafo.innerHTML = `Tú mascota atacó con ${ataqueJugador}, la mascota del enemigo atacó con ${ataqueEnemigo}. ${resultadoCombate}`
+
+    // sectionMensajes.appendChild(parrafo)
 }
 
 function crearMensajeFinal (resultadoFinal) {
