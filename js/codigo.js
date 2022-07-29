@@ -155,11 +155,11 @@ function contadorVidas(){
 function crearMensaje (resultadoCombate) {
    
 
-    let sectionMensajes = document.getElementById('resultado-combate')
-    let notificacion = document.createElement('p')
-    notificacion.innerHTML = `Tú mascota atacó con ${ataqueJugador}, la mascota del enemigo atacó con ${ataqueEnemigo}. ${resultadoCombate}`
+    let notificacion = document.getElementById('resultado-combate')
+    // let notificacion = document.createElement('p')
+    notificacion.innerHTML = resultadoCombate
 
-    sectionMensajes.appendChild(notificacion)
+    // sectionMensajes.appendChild(notificacion)
 
 
 
