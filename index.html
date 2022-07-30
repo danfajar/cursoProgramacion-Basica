@@ -13,24 +13,25 @@
 
       <div class="tarjetas">
 
+         <input type="radio" name="mascota" id="hipodoge">
          <label class="tarjeta-de-mokepon" for="hipodoge" >
             <p>Hipodoge</p>
             <img src="./assets/mokepons_mokepon_hipodoge_attack.png" alt="Imagen de Hipodoge">
          </label>
 
-         <input type="radio" name="mascota" id="hipodoge">
-   
+
+         <input type="radio" name="mascota"  id="capipepo">
          <label class="tarjeta-de-mokepon" for="capipepo">
             <p>Capipepo</p>
             <img src="./assets/mokepons_mokepon_capipepo_attack.png" alt="Imagen de Capipepo">
          </label>
-         <input type="radio" name="mascota"  id="capipepo">
-   
+
+         <input type="radio" name="mascota" id="ratigueya">
          <label class="tarjeta-de-mokepon" for="ratigueya">
             <p>Ratigüeya</p>
             <img src="./assets/mokepons_mokepon_ratigueya_attack.png" alt="Imagen de Ratigüeya">
          </label>
-         <input type="radio" name="mascota" id="ratigueya">
+
    
          <!-- <label class="tarjeta-de-mokepon" for="langostelvis">Langostelvis</label>
          <input type="radio" name="mascota" id="langostelvis">
@@ -54,7 +55,7 @@
 
       <h2 class="subtitulo">Elige tu ataque</h2>
 
-      <div class="">
+      <div class="tarjetas-ataques">
          <button id="boton-fuego" class="boton-de-ataque">Fuego 🔥</button>
          <button id="boton-agua" class="boton-de-ataque">Agua 💧</button>
          <button id="boton-tierra" class="boton-de-ataque" >Tierra 🌱</button>
@@ -71,15 +72,15 @@
       </div>
 
       <div class="batalla">
-         <div class="div">
+         <div class="ataques-jugador">
             <p id="vida-jugador">3</p>
             <p id="mascota-jugador"></p>
-            <div class="ataques-del-jugador"></div>       
+            <div id="ataques-del-jugador"></div>       
          </div>
-         <div class="div2">
+         <div class="ataques-enemigo">
             <p id="vida-enemigo">3</p>
             <p id="mascota-enemigo"></p>
-            <div class="ataques-del-enemigo"></div>         
+            <div id="ataques-del-enemigo"></div>         
          </div>
       </div>
  

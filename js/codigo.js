@@ -161,8 +161,8 @@ function crearMensaje (resultadoCombate) {
     nuevoAtaqueDelJugador.innerHTML = ataqueJugador
     nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
 
-    // ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
-    // ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
+    ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
+    ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
 
 }
 
