@@ -35,7 +35,7 @@ let ataquesMokepon
 let botonFuego
 let botonAgua
 let botonTierra
-let botones = []
+let botones = [] //se crea en la clase 56
 let ataquesMokeponEnemigo
 let vidasJugador = 3
 let vidasEnemigo = 3
@@ -141,6 +141,7 @@ function extraerAtaques(mascotaJugador){
     mostrarAtaques(ataques)
 }
 
+//Se crea en la clase 55
 function mostrarAtaques(ataques){
 
     ataques.forEach((ataque) =>{
@@ -154,7 +155,7 @@ function mostrarAtaques(ataques){
     botonFuego = document.getElementById('boton-fuego')
     botonAgua = document.getElementById('boton-agua')
     botonTierra = document.getElementById('boton-tierra')
-    botones = document.querySelectorAll('.BAtaque')
+    botones = document.querySelectorAll('.BAtaque') //Se resuelve en la clase 56
 
     // botonFuego.addEventListener('click', ataqueFuego)   
     // botonAgua.addEventListener('click', ataqueAgua)    
