@@ -94,7 +94,7 @@ function iniciarJuego() {
 
         inputHipodoge = document.getElementById('Hipodoge')
         inputCapipepo = document.getElementById('Capipepo')
-        inputRatigueya = document.getElementById('Ratigueya')
+        inputRatigueya = document.getElementById('Ratigüeya')
 
 
     })
@@ -163,10 +163,10 @@ function mostrarAtaques(ataques){
 
     
 }
-
+//secuenciaAtauque: Modifica la logica del juego permitiendo solo una secuencia de 5 ataques.
 function secuenciaAtaque() {
-    botones.forEach((boton) =>{
-        boton.addEventListener('click',(e) =>{
+    botones.forEach((boton) =>{                 //Por cada boton que exista en el arreglo de botones haz...
+        boton.addEventListener('click',(e) =>{  // e es el evento (hace referencia al evento mismo) que se genera al momento de hacer click en un ataque...
             if (e.target.textContent === '🔥'){
                 ataqueJugador.push('FUEGO')
                 console.log(ataqueJugador)

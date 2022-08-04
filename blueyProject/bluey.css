@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color:#2155CD ;
+
+}
+#seleccionar-personaje{
+    /* Se aplican conceptos de flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.titulo{
+    color: white;
+    font-size: 36px;
+    font-family: 'Fredoka One', cursive;
+}
+.subtitulo{
+    color: white;
+    font-size: 20px;
+
+}
+
+.tarjetas{
+    display: flex;
+    gap: 10px;
+}
+
+.tarjeta-personaje{
+
+    background-color: #0AA1DD;
+    width: 170px;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta-personaje img {
+    width: 70px;
+}
+
+input{
+    display: none;
+}
+
+input:checked + label {
+    border: solid;
+    border-color: white;
+    background-color:#8449f1 ;
+}
+
+input:hover + label {
+background-color:#8449f1 ;
+}
