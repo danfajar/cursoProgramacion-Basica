@@ -46,7 +46,7 @@ body {
 }
 
 .tarjeta-personaje img {
-    width: 70px;
+    width: 60px;
 }
 
 input{
@@ -61,4 +61,29 @@ input:checked + label {
 
 input:hover + label {
 background-color:#8449f1 ;
+}
+
+#boton-personaje{
+    background-color: #79DAE8;
+    width: 160px;
+    height: 50px;
+    border-radius: 30px;
+    color: #2155CD;
+    border-color: white    ;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#boton-personaje:hover{
+    width: 170px;
+    height: 60px;
+}
+#boton-personaje:active{
+    background-color:#8449f1 ;
+    color: white;
+}
+
+.mensaje{
+    color: white;
 }
