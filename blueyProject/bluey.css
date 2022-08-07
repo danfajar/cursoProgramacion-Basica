@@ -53,13 +53,13 @@ input{
     display: none;
 }
 
-input:checked + label {
+.tarjetas input:checked + label {
     border: solid;
     border-color: white;
     background-color:#8449f1 ;
 }
 
-input:hover + label {
+.tarjetas input:hover + label {
 background-color:#8449f1 ;
 }
 
@@ -86,4 +86,53 @@ background-color:#8449f1 ;
 
 .mensaje{
     color: white;
+}
+
+#seleccionar-jugada{
+    /* Se aplican conceptos de flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: 100vh; */
+    align-items: center;
+}
+
+.jugadas{
+    display: flex;
+    gap: 10px;
+}
+
+.tarjeta-jugada{
+
+    background-color:none;
+    width:85px;
+    height: 85px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius:80% ;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta-jugada img {
+    width: 60px;
+}
+
+.jugadas input:checked + label {
+    border: solid;
+    border-color: white;
+    background-color:#8449f1 ;
+}
+/* 
+.jugadas img:checked + label {
+    border: solid;
+    border-color: white;
+    background-color:#8449f1 ;
+} */
+
+.jugadas img:hover{
+width: 80px;
 }
