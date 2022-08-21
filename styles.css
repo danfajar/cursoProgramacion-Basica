@@ -167,6 +167,19 @@ background-color:#8449f1 ;
     align-items: center;
 } */
 
+
+#ver-mapa {
+    flex-direction: column;
+    align-items: center;   
+    justify-content: center;
+
+}
+
+#mapa {
+    border: solid white;
+
+}
+
 @media (max-width: 620px){
     .tarjetas {
         flex-direction: column;
