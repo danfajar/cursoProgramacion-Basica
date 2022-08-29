@@ -1,0 +1,23 @@
+{
+  "name": "basicoprogramacion",
+  "version": "1.0.0",
+  "description": "Proyecto del Curso de Programación",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danfajar/cursoProgramacion-Basica.git"
+  },
+  "author": "DanFcode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danfajar/cursoProgramacion-Basica/issues"
+  },
+  "homepage": "https://github.com/danfajar/cursoProgramacion-Basica#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}
