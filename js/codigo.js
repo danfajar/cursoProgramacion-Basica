@@ -57,14 +57,13 @@ let anchoDelMapa = window.innerWidth - 100
 
 alturaQueBuscamos = anchoDelMapa * 600 / 800
 
-mapa.width = anchoDelMapa
-mapa.height = alturaQueBuscamos - 100
+mapa.width = anchoDelMapa -20
+mapa.height = alturaQueBuscamos
 
 const anchoMaximoMapa = 350
 
 if (anchoDelMapa > anchoMaximoMapa) {
-    anchoDelMapa = anchoMaximoMapa - 100
-    alturaQueBuscamos = alturaQueBuscamos -50
+    anchoDelMapa = anchoMaximoMapa - 20
 }
 
 
@@ -74,8 +73,8 @@ class Mokepon {
         this.foto = foto
         this.vida = vida
         this.ataques = []
-        this.ancho = 80
-        this.alto = 80
+        this.ancho = 50
+        this.alto = 50
         // this.x = x
         // this.y = y
         this.x = aleatorio (0, mapa.width - this.ancho)
