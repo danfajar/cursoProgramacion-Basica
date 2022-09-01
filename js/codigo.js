@@ -98,7 +98,7 @@ class Mokepon {
     
 }
 
-let hipodoge = new Mokepon('Hipodoge','./assets/mokepons_mokepon_hipodoge_attack.png', 5,'./assets/hipodoge.png')= //, 10, 10 )
+let hipodoge = new Mokepon('Hipodoge','./assets/mokepons_mokepon_hipodoge_attack.png', 5,'./assets/hipodoge.png')//, 10, 10 )
 let capipepo = new Mokepon ('Capipepo','./assets/mokepons_mokepon_capipepo_attack.png', 5,'./assets/capipepo.png' )
 let ratigueya = new Mokepon ('Ratigueya','./assets/mokepons_mokepon_ratigueya_attack.png', 5,'./assets/ratigueya.png' )
 let hipodogeEnemigo = new Mokepon('Hipodoge','./assets/mokepons_mokepon_hipodoge_attack.png', 5,'./assets/hipodoge.png')//, 445, 295 )
