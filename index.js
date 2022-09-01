@@ -77,9 +77,10 @@ app.post ("/mokepon/:jugadorId/posicion", (req, res)=> {
 
     if (jugadorIndex >= 0){
         jugadores[jugadorIndex].actualizarPosicion(x, y)
+        
     }
 
-    console.log(x, y)
+    // console.log(x, y)
     res.end()
 
 
