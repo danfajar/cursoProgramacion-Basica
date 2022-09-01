@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOKEPON!</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
@@ -21,12 +23,16 @@
    </section>
 
    <section id="ver-mapa">
-      <h1 class="titulo">Recorre el mapa con tu Mokepon</h1>
+      <h2 class="titulo">Recorre el mapa con tu Mokepon</h2>
+
       <canvas id="mapa"></canvas>
-      <button onmouseup = "detenerMovimiento()"  onmousedown="moverArriba()">Arriba</button>
-      <button onmouseup = "detenerMovimiento()"  onmousedown="moverAbajo()">Abajo</button>
-      <button onmouseup = "detenerMovimiento()"  onmousedown="moverIzquierda()">Izquierda</button>
-      <button onmouseup = "detenerMovimiento()"  onmousedown="moverDerecha()">Derecha</button>
+      <button onmouseup = "detenerMovimiento()" ontouchend = "detenerMovimiento()"  onmousedown="moverArriba()" ontouchstart = "moverArriba()" >⬆</button>
+      <div>
+         <button onmouseup = "detenerMovimiento()" ontouchend = "detenerMovimiento()"  onmousedown="moverIzquierda()" ontouchstart="moverIzquierda()">⬅</button>
+         <button onmouseup = "detenerMovimiento()" ontouchend = "detenerMovimiento()"  onmousedown="moverAbajo()" ontouchstart="moverAbajo()">⬇</button>
+         <button onmouseup = "detenerMovimiento()" ontouchend = "detenerMovimiento()"  onmousedown="moverDerecha()" ontouchstart="moverDerecha()">➡</button>
+      </div>
+      
 
    </section>
 

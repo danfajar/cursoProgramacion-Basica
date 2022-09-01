@@ -52,18 +52,34 @@ let intervalo
 let mapaBackground = new Image()
 mapaBackground.src = './assets/mokemap.png'
 let mascotaJugadorObjeto
+let alturaQueBuscamos
+let anchoDelMapa = window.innerWidth - 100
+
+alturaQueBuscamos = anchoDelMapa * 600 / 800
+
+mapa.width = anchoDelMapa
+mapa.height = alturaQueBuscamos - 100
+
+const anchoMaximoMapa = 350
+
+if (anchoDelMapa > anchoMaximoMapa) {
+    anchoDelMapa = anchoMaximoMapa - 100
+    alturaQueBuscamos = alturaQueBuscamos -50
+}
 
 
 class Mokepon {
-    constructor(nombre, foto, vida, fotoMapa, x = 10, y = 10 ){
+    constructor(nombre, foto, vida, fotoMapa){//, x = 10, y = 10 ){
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
         this.ataques = []
-        this.x = x
-        this.y = y
         this.ancho = 80
         this.alto = 80
+        // this.x = x
+        // this.y = y
+        this.x = aleatorio (0, mapa.width - this.ancho)
+        this.y = aleatorio (0, mapa.height - this.alto)
         this.mapaFoto = new Image()
         this.mapaFoto.src = fotoMapa
         this.velocidadX = 0
@@ -82,12 +98,12 @@ class Mokepon {
     
 }
 
-let hipodoge = new Mokepon('Hipodoge','./assets/mokepons_mokepon_hipodoge_attack.png', 5,'./assets/hipodoge.png' )
+let hipodoge = new Mokepon('Hipodoge','./assets/mokepons_mokepon_hipodoge_attack.png', 5,'./assets/hipodoge.png')= //, 10, 10 )
 let capipepo = new Mokepon ('Capipepo','./assets/mokepons_mokepon_capipepo_attack.png', 5,'./assets/capipepo.png' )
 let ratigueya = new Mokepon ('Ratigueya','./assets/mokepons_mokepon_ratigueya_attack.png', 5,'./assets/ratigueya.png' )
-let hipodogeEnemigo = new Mokepon('Hipodoge','./assets/mokepons_mokepon_hipodoge_attack.png', 5,'./assets/hipodoge.png', 445, 295 )
-let capipepoEnemigo = new Mokepon ('Capipepo','./assets/mokepons_mokepon_capipepo_attack.png', 5,'./assets/capipepo.png', 415, 170 )
-let ratigueyaEnemigo = new Mokepon ('Ratigueya','./assets/mokepons_mokepon_ratigueya_attack.png', 5,'./assets/ratigueya.png', 115, 355 )
+let hipodogeEnemigo = new Mokepon('Hipodoge','./assets/mokepons_mokepon_hipodoge_attack.png', 5,'./assets/hipodoge.png')//, 445, 295 )
+let capipepoEnemigo = new Mokepon ('Capipepo','./assets/mokepons_mokepon_capipepo_attack.png', 5,'./assets/capipepo.png')//, 415, 170 )
+let ratigueyaEnemigo = new Mokepon ('Ratigueya','./assets/mokepons_mokepon_ratigueya_attack.png', 5,'./assets/ratigueya.png')//, 115, 355 )
 
 
 capipepo.ataques.push(
@@ -140,7 +156,7 @@ function iniciarJuego() {
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)      
     botonReiniciar.addEventListener('click', reiniciarJuego)
 
-    unireseAlJuego() // NODE: Se invoca a la función para unirse al juego multijugador
+    // unireseAlJuego() // NODE: Se invoca a la función para unirse al juego multijugador
 
     sectionReiniciar.style.display = 'none'   
     
@@ -179,7 +195,7 @@ function seleccionarMascotaJugador(){
         return 
     }
 
-    seleccionarMokepon(mascotaJugador) // Node Clase 77: se invoca fucnión para enviar la información del mokepon al backend
+    // seleccionarMokepon(mascotaJugador) // Node Clase 77: se invoca fucnión para enviar la información del mokepon al backend
 
 
 
@@ -459,7 +475,7 @@ function pintarCanvas(){
 
     mascotaJugadorObjeto.pintarMokepon()
 
-    enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
+    // enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
 
     hipodogeEnemigo.pintarMokepon()
     capipepoEnemigo.pintarMokepon()
@@ -481,18 +497,18 @@ function pintarCanvas(){
 
 }
 
-function enviarPosicion(x, y) {
-    fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
-        method: "post",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify ({
-            x,
-            y
-        })
-    })
-}
+// function enviarPosicion(x, y) {
+//     fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
+//         method: "post",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify ({
+//             x,
+//             y
+//         })
+//     })
+// }
 
 function moverArriba () {
     // capipepo.y = capipepo.y - 5
@@ -545,8 +561,9 @@ function sePresionoUnaTecla(event){
 
 function iniciarMapa() {
 
-    mapa.width = 640
-    mapa.height = 480
+    // mapa.width = 640
+    // mapa.height = 480
+
     mascotaJugadorObjeto = obtenerObjetoMascota(mascotaJugador)
     intervalo = setInterval(pintarCanvas, 50)
 

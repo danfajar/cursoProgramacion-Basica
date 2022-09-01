@@ -175,18 +175,40 @@ background-color:#8449f1 ;
 
 }
 
+#ver-mapa button {
+    background-color: #79DAE8;
+    width: 75px;
+    height: 50px;
+    border-radius: 30px;
+    color: #2155CD;
+    border-color: white    ;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 5px;
+}
+
 #mapa {
     border: solid white;
 
 }
 
-@media (max-width: 620px){
+@media (max-width: 620px) {
     .tarjetas {
         flex-direction: column;
     }
 
     .boton-de-ataque{
         display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 424px) {
+    #ver-mapa div {
+        display: flex;
+        align-items: center;
         flex-direction: column;
     }
 
