@@ -26,7 +26,7 @@ const sectionVerMapa = document.getElementById('ver-mapa')
 const mapa = document.getElementById('mapa')
 
 
-
+let jugadorId = null
 let mokepones = []
 let ataqueJugador = []
 let ataqueEnemigo = []
@@ -154,6 +154,7 @@ function unireseAlJuego () {
             res.text()
                 .then(function(respuesta){
                     console.log(respuesta)
+                    jugadorId = respuesta
                 })  
         }
     })
@@ -178,6 +179,10 @@ function seleccionarMascotaJugador(){
         return 
     }
 
+    seleccionarMokepon(mascotaJugador) // Node Clase 77: se invoca fucnión para enviar la información del mokepon al backend
+
+
+
     sectionSeleccionarMascota.style.display = 'none'    
 
     extraerAtaques(mascotaJugador)
@@ -185,6 +190,20 @@ function seleccionarMascotaJugador(){
     iniciarMapa()  
     seleccionarMascotaEnemigo()
    
+}
+
+function seleccionarMokepon(mascotaJugador){ //node clase 77 función para enviar mediante el metodo post la información del mokepon seleccionado.
+
+    fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            mokepon: mascotaJugador
+        })
+    })
+    
 }
 
 function extraerAtaques(mascotaJugador){
@@ -439,6 +458,9 @@ function pintarCanvas(){
     )
 
     mascotaJugadorObjeto.pintarMokepon()
+
+    enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
+
     hipodogeEnemigo.pintarMokepon()
     capipepoEnemigo.pintarMokepon()
     ratigueyaEnemigo.pintarMokepon()
@@ -457,8 +479,19 @@ function pintarCanvas(){
     }
 
 
+}
 
-
+function enviarPosicion(x, y) {
+    fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify ({
+            x,
+            y
+        })
+    })
 }
 
 function moverArriba () {

@@ -14,6 +14,22 @@ class Jugador {
     constructor(id){
         this.id = id //Clase que representa a todos los jugadores
     }
+
+    asignarMokepon(mokepon) { //Clase 77
+        this.mokepon = mokepon 
+    }
+
+    actualizarPosicion (x, y) {
+        this.x = x
+        this.y = y
+    }
+}
+
+class Mokepon { // clase 77
+    constructor(nombre){
+        this.nombre = nombre
+
+    }
 }
 
 // app.get("/", (req, res) =>{
@@ -35,14 +51,42 @@ app.get("/unirse" , (req, res) => { //Endpoint
 
 app.post("/mokepon/:jugadorId", (req, res) => { // recibiremos una petición tipo post porque recibiremos datos en JSON
     const jugadorId = req.params.jugadorId || ""
+    const nombre = req.body.mokepon || ""
+    const mokepon = new Mokepon(nombre)
+    
+    const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
+
+    if (jugadorIndex >= 0){
+        jugadores[jugadorIndex].asignarMokepon(mokepon)
+    }
+
+    
     console.log(jugadores)
-    console.log(jugador.Id)
+    console.log(jugadorId)
     res.end()
 
 })
 
 
+app.post ("/mokepon/:jugadorId/posicion", (req, res)=> {
+    const jugadorId = req.params.jugadorId || ""
+    const x = req.body.x || 0
+    const y = req.body.y || 0
 
-app.listen(8080, () => {
+    const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
+
+    if (jugadorIndex >= 0){
+        jugadores[jugadorIndex].actualizarPosicion(x, y)
+    }
+
+    console.log(x, y)
+    res.end()
+
+
+})
+
+
+
+app.listen(8080, () =>{
     console.log("Servidor funcionando") //Le damos la instrucción de escuchar continuamente por el puerto 8080 para que responda.
 })
