@@ -537,7 +537,7 @@ function detenerMovimiento(){
 }
 
 function sePresionoUnaTecla(event){
-    console.log(event.key)
+    // console.log(event.key)
     switch (event.key) {
         case 'ArrowUp':
             moverArriba()
