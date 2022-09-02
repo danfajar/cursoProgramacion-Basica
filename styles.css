@@ -206,7 +206,7 @@ background-color:#8449f1 ;
 
 }
 
-@media (max-width: 424px) {
+@media (max-width: 300px) {
     #ver-mapa div {
         display: flex;
         align-items: center;
