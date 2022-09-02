@@ -53,18 +53,30 @@ let mapaBackground = new Image()
 mapaBackground.src = './assets/mokemap.png'
 let mascotaJugadorObjeto
 let alturaQueBuscamos
-let anchoDelMapa = window.innerWidth - 100
+let anchoDelMapa = window.innerWidth - 20
+console.log(`ancho del mapa: ${window.innerWidth}`)
+console.log(`ancho del mapa: ${window.innerHeight}`)
 
-alturaQueBuscamos = anchoDelMapa * 600 / 800
+alturaQueBuscamos = (anchoDelMapa * 600 / 800) - 10
+
+const anchoMaximoMapa = 800
+const altoMaximoMapa = 600
+
+if (anchoDelMapa > anchoMaximoMapa) {
+    anchoDelMapa = anchoMaximoMapa - 10
+
+    console.log(`ancho del mapa: ${anchoDelMapa}; Altura: ${alturaQueBuscamos} `)
+}
+
+if (alturaQueBuscamos > altoMaximoMapa) {
+    alturaQueBuscamos = altoMaximoMapa - 10
+
+    console.log(`ancho del mapa: ${anchoDelMapa}; Altura: ${alturaQueBuscamos} `)
+}
+
 
 mapa.width = anchoDelMapa -20
 mapa.height = alturaQueBuscamos
-
-const anchoMaximoMapa = 350
-
-if (anchoDelMapa > anchoMaximoMapa) {
-    anchoDelMapa = anchoMaximoMapa - 20
-}
 
 
 class Mokepon {
@@ -554,8 +566,6 @@ function sePresionoUnaTecla(event){
         default:
             break;
     }
-
-
 }
 
 function iniciarMapa() {
