@@ -14,7 +14,18 @@ class Jugador {
     constructor(id){
         this.id = id //Clase que representa a todos los jugadores
     }
+
+    asignarMokepon(mokepon){
+        this.mokepon = mokepon
+    }
 }
+
+class Mokepon {
+    constructor(nombre) {
+        this.nombre = nombre
+    }
+}
+
 
 // app.get("/", (req, res) =>{
 //     res.send("Hola bienvenidos") //Cuando en la URL raíz reciba una petición responda Hola
@@ -35,8 +46,21 @@ app.get("/unirse" , (req, res) => { //Endpoint
 
 app.post("/mokepon/:jugadorId", (req, res) => { // recibiremos una petición tipo post porque recibiremos datos en JSON
     const jugadorId = req.params.jugadorId || ""
+    const nombre = req.body.mokepon || ""
+    const mokepon  = new Mokepon (nombre)
+
+    const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
+
+    if (jugadorIndex >= 0){
+        jugadores[jugadorIndex].asignarMokepon(mokepon)
+    }
+
+
+    const x = req.body.x || 0
+    const y = req.body.y || 0
+    
     console.log(jugadores)
-    console.log(jugador.Id)
+    console.log(jugadorId)
     res.end()
 
 })

@@ -52,6 +52,7 @@ let intervalo
 let mapaBackground = new Image()
 mapaBackground.src = './assets/mokemap.png'
 let mascotaJugadorObjeto
+let jugadorId = null
 
 
 class Mokepon {
@@ -140,13 +141,13 @@ function iniciarJuego() {
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)      
     botonReiniciar.addEventListener('click', reiniciarJuego)
 
-    unireseAlJuego() // NODE: Se invoca a la función para unirse al juego multijugador
+    unirseAlJuego() // NODE: Se invoca a la función para unirse al juego multijugador
 
     sectionReiniciar.style.display = 'none'   
     
 }
 
-function unireseAlJuego () {
+function unirseAlJuego () {
     fetch('http://localhost:8080/unirse') //Nos permite realizar llamadas hacia otros servicios y mediante cual metodo.
     .then(function(res){ //Petición asincrona, por lo tanto se utiliza una propiedad then, que recibe una función que se ejecuta una vez se haya resuelto la petición.
         console.log(res)
@@ -154,6 +155,7 @@ function unireseAlJuego () {
             res.text()
                 .then(function(respuesta){
                     console.log(respuesta)
+                    jugadorId = respuesta
                 })  
         }
     })
@@ -178,13 +180,31 @@ function seleccionarMascotaJugador(){
         return 
     }
 
+    seleccionarMokepon(mascotaJugador) // Node Clase 77: se invoca fucnión para enviar la información del mokepon al backend
+
     sectionSeleccionarMascota.style.display = 'none'    
+
+    seleccionarMokepon (mascotaJugador) //node clase 77 función se invoca función
 
     extraerAtaques(mascotaJugador)
     sectionVerMapa.style.display = 'flex'
     iniciarMapa()  
     seleccionarMascotaEnemigo()
    
+}
+
+function seleccionarMokepon(mascotaJugador){ //node clase 77 función para enviar mediante el metodo post la información del mokepon seleccionado.
+
+    fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            mokepon: mascotaJugador
+        })
+    })
+    
 }
 
 function extraerAtaques(mascotaJugador){
@@ -228,7 +248,7 @@ function secuenciaAtaque() {
                 console.log(ataqueJugador)
                 boton.style.background = '#112f58'
                 boton.disabled = true
-
+                
             }else if (e.target.textContent === '💧'){
                 ataqueJugador.push('AGUA')
                 console.log(ataqueJugador)
@@ -439,6 +459,9 @@ function pintarCanvas(){
     )
 
     mascotaJugadorObjeto.pintarMokepon()
+
+   // enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
+
     hipodogeEnemigo.pintarMokepon()
     capipepoEnemigo.pintarMokepon()
     ratigueyaEnemigo.pintarMokepon()
@@ -460,6 +483,24 @@ function pintarCanvas(){
 
 
 }
+
+// function enviarPosicion(x, y) {
+//     fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
+//         method: "post",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify ({
+//             x,
+//             y
+//         })
+//     })
+// }
+
+
+
+
+
 
 function moverArriba () {
     // capipepo.y = capipepo.y - 5
@@ -489,7 +530,7 @@ function detenerMovimiento(){
 }
 
 function sePresionoUnaTecla(event){
-    console.log(event.key)
+    // console.log(event.key)
     switch (event.key) {
         case 'ArrowUp':
             moverArriba()
