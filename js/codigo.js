@@ -460,7 +460,7 @@ function pintarCanvas(){
 
     mascotaJugadorObjeto.pintarMokepon()
 
-   // enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
+   enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
 
     hipodogeEnemigo.pintarMokepon()
     capipepoEnemigo.pintarMokepon()
@@ -484,18 +484,28 @@ function pintarCanvas(){
 
 }
 
-// function enviarPosicion(x, y) {
-//     fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
-//         method: "post",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify ({
-//             x,
-//             y
-//         })
-//     })
-// }
+function enviarPosicion(x, y) {
+    fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify ({
+            x,
+            y
+        })
+    })
+
+     .then(function(res){
+        if(res.ok){
+            res.json()
+            .then(function({enemigos}){
+                console.log(enemigos)
+            })            
+            
+        }
+     })
+}
 
 
 
